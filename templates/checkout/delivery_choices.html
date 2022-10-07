@@ -16,7 +16,7 @@
 
 <div class="container">
 {% if messages %}
-<div class="alert alert-warning" alert-{{ message.tags }}" role="alert">
+<div class="alert alert-warning" alert-{{ message.tags }} role="alert">
   {% for message in messages  %}
     {{message|safe}}
   {% endfor %}
@@ -24,13 +24,13 @@
 {% endif %}
   <div class="row g-3">
     {% if deliveryoptions|length == 0 %}
-    <div class="col-12">There are no delivery options <a href="{% url 'store:store_home' %}">Shop</a></div>
+    <div class="col-12">There are no delivery options <a href="{% url 'catalogue:store_home' %}">Shop</a></div>
     {% else %}
     <div class="col-md-4 col-lg-4 order-md-last p-0 order-3">
       <div class="d-flex bd-highlight ms-0">
         <div class="p-2 flex-grow-1 bd-highlight">Sub Total:</div>
         <div class="p-2 bd-highlight"><span class="fw-bold h5">£</span><span id="sub_total"
-            class="fw-bold h5">{{basket.get_subtotal_price}}</span></div>
+            class="fw-bold h5">{{ecommerce.apps.basket.get_subtotal_price}}</span></div>
       </div>
       <div class="d-flex bd-highlight">
         <div class="p-2 flex-grow-1 bd-highlight">Delivery Cost:</div>
